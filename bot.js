@@ -51,7 +51,7 @@ bot.on("message", async message => {
 
     //COMMAND HANDLER
     try {
-        let commandFile = require(`./commands/${cmd.js}`);
+        let commandFile = require(`./commands/${cmd}.js`);
         commandFile.run(bot, message, args)
         } catch (err) {
         console.log(`${err.stack}`);
