@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 module.exports.run = async(bot, message, args) => {
     message.guild.members.map(async user => {
-        if(message.author.id !== "299157627584118787" || message.author.id !== "414111663076147201") return message.channel.send("**You can't use this command!**");
+        if(message.author.id !== "299157627584118787" || message.author.id !== "414111663076147201"){ message.channel.send("**You can't use this command!**");
+    }else {
         const msg = args.join(" ");
         if(user.bot) return undefined;
         if (msg.length < 1){
@@ -19,6 +20,7 @@ module.exports.run = async(bot, message, args) => {
             .setTimestamp();
             await user.send(embed);
         }
+    }
             });
     };
 
