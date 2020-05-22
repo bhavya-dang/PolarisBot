@@ -20,7 +20,7 @@ const fs = require("fs");
 let bot = Discord.Client();
 bot.commands = new Discord.Collection();
 const prefix = "p@";
-const config = require("./config")
+
 //ON BOOT
 bot.on("ready", () => {
     console.log(`[${moment(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: System Booting up...\n[${moment.utc(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: All commands loaded.\n[${moment.utc(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: 4 events ready.`);
@@ -60,7 +60,7 @@ bot.on("message", async message => {
 });
 
 //AUTH
-bot.login(config.token);
+bot.login(process.env.TOKEN);
 
 
 
