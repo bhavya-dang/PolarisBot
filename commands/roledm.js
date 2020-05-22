@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async(bot, message, args) => {
-    message.guild.members.forEach(user => {
+    message.guild.members.map(user => {
         const role = message.guild.roles.find(`name`, args[0]);
         if(user.roles.has(role.id)){
             let embed = Discord.RichEmbed()

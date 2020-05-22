@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = async(bot, message, args) => {
-    message.guild.members.forEach(user => {
+    message.guild.members.map(user => {
             let embed = Discord.RichEmbed()
             .setTitle("POLARIS", message.guild.iconURL)
             .setColor("00ffc3")
