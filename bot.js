@@ -17,7 +17,7 @@ app.get("/", (request, response) => {
 const Discord = require("discord.js");
 const moment = require("moment");
 const fs = require("fs");
-let bot = Discord.Client();
+let bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const prefix = "p@";
 
