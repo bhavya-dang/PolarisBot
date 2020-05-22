@@ -8,10 +8,10 @@ app.get("/", (request, response) => {
     response.sendStatus(200);
 });
 
-app.listen(process.env.PORT);
-setInterval(() => {
-    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
+// app.listen(process.env.PORT);
+// setInterval(() => {
+//     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+// }, 280000);
 
 //PACKAGES AND FILES
 const Discord = require("discord.js");
@@ -20,7 +20,7 @@ const fs = require("fs");
 let bot = Discord.Client();
 bot.commands = new Discord.Collection();
 const prefix = "p@";
-
+const config = require("./config")
 //ON BOOT
 bot.on("ready", () => {
     console.log(`[${moment(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: System Booting up...\n[${moment.utc(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: All commands loaded.\n[${moment.utc(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${bot.user.username}]: 4 events ready.`);
@@ -60,7 +60,7 @@ bot.on("message", async message => {
 });
 
 //AUTH
-bot.login(process.env.TOKEN);
+bot.login(config.token);
 
 
 
