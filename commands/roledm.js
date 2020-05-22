@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports.run = async(bot, message, args) => {
     message.guild.members.map(async user => {
-        // if(user.id == message.author.id || user.id == bot.user.id)
+        if(message.author.id !== "299157627584118787") return message.channel.send("You can't use this command!");
         const roleArgs = args.slice(0, 1);
         const role = message.guild.roles.find(r => r.name == roleArgs.join(" "));
         if (roleArgs < 1 || !role){ 
