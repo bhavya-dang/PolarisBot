@@ -43,20 +43,20 @@ bot.on("ready", () => {
 
 //MESSAGE EVENT
 bot.on("message", async message => {
-    if(message.author.bot) return;
-    if(!message.content.startsWith(prefix)) return;
-    let args = message.content.slice(prefix.length).trim().split(" ");
-    let cmd = args.shift().toLowerCase();
-    message.prefix = prefix;
-
-    //COMMAND HANDLER
-    try {
-        let commandFile = require(`./commands/${cmd}.js`);
-        commandFile.run(bot, message, args)
-        } catch (err) {
-        console.log(`${err.stack}`);
-    }
-    console.log(`[${moment(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${message.author.tag}]: Command: "${cmd} [${message.guild.name}]`);
+	if(message.author.bot) return undefined;
+  if(!message.content.startsWith(prefix)) return;
+	// if(message.channel.type === 'dm') return;
+	let args = message.content.slice(prefix.length).trim().split(" ");
+	let cmd = args.shift().toLowerCase();
+  message.prefix = prefix;
+// Command Handler
+try{
+let commandFile = require(`./commands/${cmd}.js`);
+commandFile.run(bot, message, args)
+}catch(err){
+console.log(`${err.stack}`)
+}
+console.log(`[${moment.utc(new Date()).format("dddd, MMMM Do YYYY, HH:mm:ss")}] [${message.author.tag}]: Command: "${cmd}" [${message.guild.name}]`);
 });
 
 //AUTH
