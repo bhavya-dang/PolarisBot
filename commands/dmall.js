@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
   let members = message.guild.members.filter((mem) => !mem.user.bot);
   members.map(async (user) => {
     let embed = new Discord.RichEmbed()
-      .setTitle("Polaris Tournaments Announcement")
+      .setTitle("**Server Announcement**")
       .setThumbnail(message.guild.iconURL)
       .setColor("00ffc3")
       .setDescription(messageArgs)

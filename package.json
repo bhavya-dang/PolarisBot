@@ -1,18 +1,20 @@
 {
   "name": "polarismaster",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Special commission project for PolarisGG.",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
   },
-  "keywords": [],
+  "keywords": ["discord", "bot", "discordbot", "nodejs", "djs"],
   "author": "",
-  "license": "ISC",
+  "license": "GNU",
   "dependencies": {
     "discord.js": "^11.5.1",
     "express": "^4.17.1",
     "http": "0.0.1-security",
-    "moment": "^2.26.0"
+    "moment": "^2.26.0",
+    "hastebin-gen": "2.0.5"
   }
 }
