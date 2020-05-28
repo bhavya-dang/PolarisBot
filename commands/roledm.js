@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
           .setColor("00ffc3")
           .setDescription("An error was found while executing this command. Please check if the Bot is not missing permissions and has a higher role than the user.")
           .setTimestamp();
-          await message.channel.send(embed).then((m) => m.delete(10000));
+          await message.channel.send(errEmbed).then((m) => m.delete(10000));
       };
     } catch (error) {
       console.log(error);
