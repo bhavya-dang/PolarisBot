@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("**Usage:**", "`p@roledm <rolename> <message>`", true);
   if (!role || !message.guild.roles.has(role.id))
     return message.channel.send(noRoleEmbed).then((m) => m.delete(10000));
-
+ 
   let noMessageEmbed = new Discord.RichEmbed()
     .setTitle("**ERROR** - Please specify a message!")
     .setThumbnail(message.guild.iconURL)
@@ -27,17 +27,8 @@ module.exports.run = async (bot, message, args) => {
   )
     return message.channel.send("**You can't use this command!**!");
 
-  if (!bot.hasPermission("ADMINISTRATOR")) {
-    let errEmbed = new Discord.RichEmbed()
-      .setTitle("**ERROR**")
-      .setThumbnail(message.guild.iconURL)
-      .setColor("00ffc3")
-      .setDescription(
-        "An error was found while executing this command. Please check if the Bot is not missing permissions and has a higher role than the user."
-      )
-      .setTimestamp(moment.utc().format());
-    await message.channel.send(errEmbed).then((m) => m.delete(10000));
-  }
+  // if (!bot.hasPermission("ADMINISTRATOR")) {
+  // }
   message.guild.members.map(async (user) => {
     if (user.roles.has(role.id) && !user.bot) {
       let embed = new Discord.RichEmbed()
