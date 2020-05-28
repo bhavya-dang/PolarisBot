@@ -34,17 +34,17 @@ module.exports.run = async (bot, message, args) => {
           .setDescription(messageArgs.join(" "))
           .setTimestamp();
         await user.send(embed);
-      } else {
-        let errEmbed = new Discord.RichEmbed()
-          .setTitle("**ERROR**")
-          .setThumbnail(message.guild.iconURL)
-          .setColor("00ffc3")
-          .setDescription("An error was found while executing this command. Please check if the Bot is not missing permissions and has a higher role than the user.")
-          .setTimestamp();
-          await message.channel.send(errEmbed).then((m) => m.delete(10000));
-      };
+      } else return undefined;
+      
     } catch (error) {
       console.log(error);
+      let errEmbed = new Discord.RichEmbed()
+      .setTitle("**ERROR**")
+      .setThumbnail(message.guild.iconURL)
+      .setColor("00ffc3")
+      .setDescription("An error was found while executing this command. Please check if the Bot is not missing permissions and has a higher role than the user.")
+      .setTimestamp();
+      await message.channel.send(errEmbed).then((m) => m.delete(10000));
     }
   });
   let successEmbed = new Discord.RichEmbed()
